@@ -176,7 +176,8 @@ class TestAccountService(TestCase):
         """It should not allow an illegal method call"""
         resp = self.client.delete(BASE_URL)
         self.assertEqual(resp.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
-        
+
+
     ######################################################################
     #  S E C U R I T Y   T E S T   C A S E S
     ######################################################################
@@ -202,4 +203,3 @@ class TestAccountService(TestCase):
 
         resp = self.client.get('/', environ_overrides=HTTPS_ENVIRON)
         self.assertEqual(resp.headers.get('Access-Control-Allow-Origin'), '*')
-
